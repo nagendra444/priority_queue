@@ -1,0 +1,17 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+int klargest(int a[ ],int n,int k)
+{
+  priority_queue<int> pq; // initialising heap
+  pq(a,a+n); // inserting 
+  int x;
+  while(k>0)
+  {
+    x = pq.top();
+    pq.top();
+    k--;
+  }
+  return x;
+}
+  
