@@ -1,0 +1,33 @@
+#include<iostream>
+#include<queue>
+#include<unordered_map>
+#include<pair>
+#include<vector>
+using namespace std;
+bool compare(pair<int,int> p1,pair<int,int> p2)
+{
+  if(p1.second==p2.second)
+  {
+    return p1.first > p2.first;
+  }
+  else 
+    return p1.second < p2.second;
+ }
+void k_most_freq(int a[ ],int n,int k)
+{
+  unordered_map<int,int> mp;//creating hash table
+  for(int i=0;i<n;i++)
+  {
+    mp[a[i]]++;
+  }
+  
+  vector<pair<int,int>> freq(mp.begin(),mp.end()); 
+  
+  priority_queue<pair<int,int>,vector<int,int>,compare> pq(freq.begin(),freq.end()); //max heap
+  
+  for(int i=0;i<k;i++)
+  {
+    cout<<pq.top();
+    pq.pop();
+  }
+}
